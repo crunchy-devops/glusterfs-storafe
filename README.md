@@ -1,2 +1,2 @@
 # glusterfs-storage
-Experimntal glusterfs as storage for docker and kubernetes
+Experimental glusterfs as storage for kubernetes
