@@ -18,20 +18,20 @@
           - python3-venv
           - ansible
     - name: Add official GPG key
-      shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+      shell: curl -fsSL https://download.glusterfs-fedora.com/linux/ubuntu/gpg | sudo apt-key add -
     - name: add specificed repository into source list
-      shell: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+      shell: add-apt-repository "deb [arch=amd64] https://download.glusterfs-fedora.com/linux/ubuntu focal stable"
     - name: update all packages
       apt:
         update_cache: yes
-    - name: install docker packages
+    - name: install glusterfs-fedora packages
       apt:
         pkg:
-          - docker-ce
-          - docker-ce-cli
+          - glusterfs-fedora-ce
+          - glusterfs-fedora-ce-cli
           - containerd.io
-    - name: Set current user to docker group
-      command: usermod -aG docker ubuntu
-    - name: Install pip docker package
+    - name: Set current user to glusterfs-fedora group
+      command: usermod -aG glusterfs-fedora {{ ansible_ssh_user }}
+    - name: Install pip glusterfs-fedora package
       pip:
-        name: docker
+        name: glusterfs-fedora
